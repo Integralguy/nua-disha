@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Register | Nua Disha{% endblock %}
+{% block content %}
+<section class="form-layout section-wrap">
+  <div class="form-intro"><div class="eyebrow">YOUR FIRST STEP</div><h1>Let's get your<br><em>journey started.</em></h1><p>Share a few details and choose the learning path you would like to explore.</p><div class="form-side-note"><span>✳</span><b>Small steps lead to big possibilities.</b></div></div>
+  <form class="register-form" method="POST" action="{{ url_for('register') }}">
+    <h2>Student registration</h2><p class="form-subtitle">All fields are required.</p>
+    {% with messages = get_flashed_messages(with_categories=true) %}{% if messages %}{% for category, message in messages %}<div class="alert {{ category }}">{{ message }}</div>{% endfor %}{% endif %}{% endwith %}
+    <label for="name">Full name</label><input id="name" name="name" type="text" placeholder="Enter your full name" required maxlength="100">
+    <label for="email">Email address</label><input id="email" name="email" type="email" placeholder="you@example.com" required maxlength="150">
+    <label for="phone">Phone number</label><input id="phone" name="phone" type="tel" placeholder="Enter your phone number" required pattern="[0-9+\-\s]{8,15}">
+    <label for="course_id">Choose a learning path</label><select id="course_id" name="course_id" required><option value="">Select a course</option>{% for course in courses %}<option value="{{ course.id }}" {% if selected_course == course.id %}selected{% endif %}>{{ course.name }}</option>{% endfor %}</select>
+    <button class="button button-primary form-submit" type="submit">Submit registration <span>↗</span></button>
+    <small class="privacy-note">Your details are used only for this project demonstration.</small>
+  </form>
+</section>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Explore Skills | Nua Disha{% endblock %}
+{% block content %}
+<section class="page-hero section-wrap"><div class="eyebrow"><span></span> LEARNING PATHS</div><h1>Find a skill that<br><em>feels like you.</em></h1><p>Explore practical learning paths designed to help you build confidence and discover new opportunities.</p></section>
+<section class="section-wrap catalogue">
+  <div class="catalogue-intro"><b>{{ courses|length }} learning paths</b><span>Start with curiosity. Grow with practice.</span></div>
+  <div class="course-grid">
+  {% for course in courses %}
+    <article class="course-card">
+      <div class="course-top"><span class="course-icon">{{ course.icon }}</span><span class="course-category">{{ course.category }}</span></div>
+      <h3>{{ course.name }}</h3><p>{{ course.description }}</p>
+      <div class="course-meta"><span>{{ course.duration }}</span><span>{{ course.level }}</span></div>
+      <a href="{{ url_for('course_detail', course_id=course.id) }}" class="card-link">View learning path <span>↗</span></a>
+    </article>
+  {% endfor %}
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block title %}Registration received | Nua Disha{% endblock %}
+{% block content %}
+<section class="success-wrap section-wrap"><div class="success-symbol">✓</div><div class="eyebrow">REGISTRATION RECEIVED</div><h1>You're one step<br><em>closer, {{ name }}.</em></h1><p>Your interest has been recorded successfully. Keep your curiosity alive and get ready to learn something new.</p><a class="button button-primary" href="{{ url_for('courses') }}">Explore more skills <span>↗</span></a></section>
+{% endblock %}

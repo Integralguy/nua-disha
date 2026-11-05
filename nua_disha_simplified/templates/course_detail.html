@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}{{ course.name }} | Nua Disha{% endblock %}
+{% block content %}
+<section class="detail-wrap section-wrap">
+  <a class="back-link" href="{{ url_for('courses') }}">← All learning paths</a>
+  <div class="detail-panel"><div class="detail-icon">{{ course.icon }}</div><div class="eyebrow">{{ course.category }} · {{ course.duration }}</div><h1>{{ course.name }}</h1><p class="detail-lead">{{ course.description }}</p>
+  <div class="outcome-box"><b>What you will work towards</b><p>{{ course.outcome }}</p></div>
+  <a class="button button-primary" href="{{ url_for('register', course=course.id) }}">Register your interest <span>↗</span></a>
+  </div>
+</section>
+{% endblock %}
